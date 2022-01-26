@@ -63,7 +63,7 @@
     <div style="width:100%; height:80px; color:gray">
         <img src="https://statics.teams.cdn.office.net/hashedassets/favicon/prod/favicon-32x32-04b7d908.png" style="margin-left: 10px" />
         <span style="margin-left: 20px; font-family: 'Segoe UI'; font-weight: bolder; font-size: x-large; vertical-align: top">Share to Microsoft Teams</span><br>
-        <input type="button" onclick="Info.style.visibility = 'visible'; LocalMethod.innerHTML = GetFromLocalFileSystem(); GetFromPostMessage('PostMessageMethod');" value="Attach devTools, then click here to start" style="margin-left: 10px; margin-top: 10px; font-family: 'Segoe UI'; font-weight: bold; font-size: large"/>
+        <input type="button" onclick="Info.style.visibility = 'visible'; /* LocalMethod.innerHTML = GetFromLocalFileSystem(); */  GetFromPostMessage('PostMessageMethod');" value="Attach devTools, then click here to start" style="margin-left: 10px; margin-top: 10px; font-family: 'Segoe UI'; font-weight: bold; font-size: large"/>
     </div>
     <div id="Info" style="width:100%; visibility:collapse; color:gray">
         <strong style="visibility:collapse">Loaded directly from local file system:</strong><br>
