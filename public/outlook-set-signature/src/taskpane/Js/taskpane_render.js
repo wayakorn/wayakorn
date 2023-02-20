@@ -191,3 +191,25 @@ function reset_all_configuration()
   clear_all_localstorage_data();
   clear_roaming_settings();
 }
+
+function do_work()
+{
+  Office.context.mailbox.user_info_str
+//  _display_name.val("");
+//  _email_id.val("");
+_job_title.val("");
+_phone_number.val("");
+
+  try {
+    let accessToken = Office.context.auth.getAccessToken({
+      allowSignInPrompt: true,
+      allowConsentPrompt: true,
+      forMSGraphAccess: true
+    });
+    _phone_number.val(accessToken);
+  } catch (error) {
+    _job_title.val(error);
+  }
+//  _greeting_text.val("");
+//  _preferred_pronoun.val("");
+}
