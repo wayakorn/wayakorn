@@ -11,7 +11,8 @@ function go() {
     crash();
   } else {
     // redirect to the real page (from configuration_tfw.json)
-    window.location.href = "https://teams.microsoft.com/v2/?skipauthstrap=1";
+	window.open("https://teams.microsoft.com/v2/?skipauthstrap=1");
+    //window.location.href = "https://teams.microsoft.com/v2/?skipauthstrap=1";
   }
 }
 function getEdgeMajorMinorVersion() {
