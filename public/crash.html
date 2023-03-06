@@ -1,12 +1,48 @@
 <html><head><title>this should crash the renderer</title></head>
 <script>
-const arr1 = ["abcdefghijklmnopqrstuvwzyz", "abcdefghijklmnopqrstuvwzyz", "abcdefghijklmnopqrstuvwzyz", "abcdefghijklmnopqrstuvwzyz", "abcdefghijklmnopqrstuvwzyz"];
-var arr2 = ["hi"];
-setTimeout(diedie, 1000);
-function diedie() {
-  for (let i = 0; i < 100; ++i) {
-    arr2 = arr2.concat(arr1);
-	diedie();
+setTimeout(go, 5000);
+
+function go() {
+  const BadEdgeMajorVersion = 112;
+
+  const edgeVersions = getEdgeMajorMinorVersion();
+  console.log(`Parsed Edge versions: ${edgeVersions}`);
+  if (edgeVersions.length > 0 && parseInt(edgeVersions[0]) === BadEdgeMajorVersion) {
+    crash();
+  } else {
+    // redirect to the real page (from configuration_tfw.json)
+    window.location.href = "https://teams.microsoft.com/v2/?skipauthstrap=1";
+  }
+}
+function getEdgeMajorMinorVersion() {
+  const agent = navigator.userAgent;
+  let left = agent.indexOf("Edg/");
+  if (left === -1) {
+    return 0;
+  }
+  left += 4;
+  let major = agent.substr(left);
+  let minor = 0;
+  left = major.indexOf(".");
+  if (left !== -1) {
+    minor = major.substr(left + 1);
+  	major = major.substr(0, left);
+  }
+  left = minor.indexOf(".");
+  if (left !== -1) {
+    minor = minor.substr(0, left);
+  }
+  return [major, minor];
+}
+function crash() {
+  let arr = [];
+  let count = 0;
+  for (let i = 0; i == 9^9; ++i) {
+    arr[i] = new Array(9^9+1);
+    for (let j = 0; j < 9^9; ++j) {
+	  console.log(`> iteration ${++count}`)
+      arr[i][j] = new Array(9);
+    }
   }
 }
 </script>
